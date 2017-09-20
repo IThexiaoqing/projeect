@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>QQ</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+			<link rel='stylesheet' type="text/css" href='//at.alicdn.com/t/font_353544_o3tk1zqwob51m7vi.css' />
+		<link rel="stylesheet" type="text/css" href="./css/icons-extra.css" />
+		
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="./css/app.css"/>
+		<style>
+			.night{
+				background-color: grey;
+			}
+			
+			.title{
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			
+			.oa-contact-cell.mui-table .mui-table-cell {
+				padding: 11px 0;
+				vertical-align: middle;
+			}
+			
+			.oa-contact-cell {
+				position: relative;
+				margin: -11px 0;
+			}
+	
+			.oa-contact-avatar {
+				width: 75px;
+			}
+			.oa-contact-avatar img {
+				border-radius: 50%;
+			}
+			.oa-contact-content {
+				width: 100%;
+			}
+			.oa-contact-name {
+				margin-right: 20px;
+			}
+			.oa-contact-name, oa-contact-position {
+				float: left;
+			}
+			.mui-grid-view.mui-grid-9 .mui-table-view-cell {
+         		padding:0; 
+     			border-right: none; 
+   				border-bottom: none; 
+			}
+			.mui-table-view:before {
+				height:0;
+			}
+           #list .mui-table-view:after {
+     		height: 0;   
+			}
+			#list ul li.mui-table-view-cell:after{
+				height:0;
+			} 
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+			<!--侧滑菜单部分-->
+			<aside id="offCanvasSide" class="mui-off-canvas-left">
+				<!--底部导航-->
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item " href="./html/shezhi.html" target="_blank">
+				<span class="iconfont icon-shezhi"></span>
+				<span class="mui-tab-label">设置</span>
+			</a>
+			<a id="night" class="mui-tab-item" href="#">
+				<span class="iconfont icon-yejianmoshi"></span>
+				<span class="mui-tab-label">夜间</span>
+			</a>
+			<a class="mui-tab-item" href="#">
+				<span class="iconfont icon-tianqi"></span>
+				<span class="mui-tab-label">广州</span>
+			</a>
+		</nav>
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper" style="background-color: #fff;">
+					<div class="mui-scroll">
+						<div class="title">
+							<i class='iconfont icon-app1' style=" float:right;margin-top:-10px;margin-buttom:5px"></i>
+						</div>
+						<div class="content" style="height:150px;clear:both;background-image: url(../images/yuantiao.jpg);">
+							<img src="./images/shuijiao.jpg"/ style="width:50px;height:50px;border-radius: 25px;margin-top: 13px;">
+							<span>流金岁月</span>
+							<p class="iconfont icon-taiyang " style="color:yellow">
+								<span class="iconfont icon-taiyang"></span>
+								<span class="iconfont icon-yueliang"></span>
+								<span class="iconfont icon-yueliang"></span>
+								<span class="iconfont icon-xing"></span>
+								<span class="iconfont icon-xing"></span></p>
+								<p id="pid" style="color:#000000;">理想与现实往往只有一步之遥</p>
+						</div>
+						<div id="list">
+						<ul class="mui-table-view">
+				 		<li class="mui-table-view-cell iconfont icon-huiyuan4">&nbsp;&nbsp;&nbsp;&nbsp;了解会员特权</li>
+		         		<li class="mui-table-view-cell iconfont icon-qianbao1">&nbsp;&nbsp;&nbsp;&nbsp;QQ钱包</li>
+		        		<li class="mui-table-view-cell iconfont icon-gexinghua">&nbsp;&nbsp;&nbsp;&nbsp;个性装扮</li>
+		        		<li class="mui-table-view-cell iconfont icon-shoucang2">&nbsp;&nbsp;&nbsp;&nbsp;我的收藏</li>
+		         		<li class="mui-table-view-cell iconfont icon-wodexiangce1">&nbsp;&nbsp;&nbsp;&nbsp;我的相册</li>
+		        		<li class="mui-table-view-cell iconfont icon-wenjianjiaxian1">&nbsp;&nbsp;&nbsp;&nbsp;我的文件</li>
+		        		<li class="mui-table-view-cell iconfont icon-mianfeiliuliang">&nbsp;&nbsp;&nbsp;&nbsp;免流量特权</li>
+						</ul>
+						</div>
+					</div>
+				</div>
+			</aside>
+			<!--主页面-->
+			<div class="mui-inner-wrap">
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+		<!--底部导航-->
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#tabbar">
+				<span class="mui-icon mui-icon-chat"><span class="mui-badge">99+</span></span>
+				<span class="mui-tab-label">消息</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-chat">
+				<span class="mui-icon mui-icon-contact"><span class="mui-badge">9</span></span>
+				<span class="mui-tab-label">联系人</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-contact">
+				<span class="mui-icon mui-icon-star"></span>
+				<span class="mui-tab-label">动态</span>
+			</a>
+		</nav>
+		
+		<!--导航切换页面的内容-->
+		<div class="mui-content">
+			<!--消息页-->
+			<div id="tabbar" class="mui-control-content mui-active">
+				<div class="title">
+				<h5 id="text" style="text-align: center;color:#000 ;"><span><img src="./images/muwu.jpg" style="width: 30px;height:30px;float: left;border-radius: 15px;"/></span>消息<a href="#topPopover" id="menu" class="mui-action-menu iconfont icon-shangchengxitongtubiaozitihuayuanwenjian75 mui-pull-right" style="font-size:25px;" ></a></h5>
+				
+				<div class="mui-input-row mui-search">
+					<input type="search" class="mui-input-clear" placeholder="搜索">
+				</div>
+			</div>
+				<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><span class="mui-badge mui-badge-danger">15</span>
+						<img class="mui-media-object mui-pull-left" src="./images/shuijiao.jpg">
+						<div class="mui-media-body">
+							幸福
+							<p class='mui-ellipsis mui-navigate-right'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><span class="mui-badge mui-badge-danger">99</span>
+						<img class="mui-media-object mui-pull-left" src="./images/muwu.jpg">
+						<div class="mui-media-body">
+							木屋
+							<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><span class="mui-badge mui-badge-danger">10</span>
+						<img class="mui-media-object mui-pull-left" src="./images/cbd.jpg">
+						<div class="mui-media-body">
+							CBD
+							<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+						</div>
+					</a>
+				</li>
+                <li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><span class="mui-badge mui-badge-danger">15</span>
+						<img class="mui-media-object mui-pull-left" src="./images/shuijiao.jpg">
+						<div class="mui-media-body">
+							幸福
+							<p class='mui-ellipsis mui-navigate-right'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><span class="mui-badge mui-badge-danger">99</span>
+						<img class="mui-media-object mui-pull-left" src="./images/muwu.jpg">
+						<div class="mui-media-body">
+							木屋
+							<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><span class="mui-badge mui-badge-danger">10</span>
+						<img class="mui-media-object mui-pull-left" src="./images/cbd.jpg">
+						<div class="mui-media-body">
+							CBD
+							<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><span class="mui-badge mui-badge-danger">15</span>
+						<img class="mui-media-object mui-pull-left" src="./images/shuijiao.jpg">
+						<div class="mui-media-body">
+							幸福
+							<p class='mui-ellipsis mui-navigate-right'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><span class="mui-badge mui-badge-danger">99</span>
+						<img class="mui-media-object mui-pull-left" src="./images/muwu.jpg">
+						<div class="mui-media-body">
+							木屋
+							<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><span class="mui-badge mui-badge-danger">10</span>
+						<img class="mui-media-object mui-pull-left" src="./images/cbd.jpg">
+						<div class="mui-media-body">
+							CBD
+							<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+			</div>
+			<!--右上角弹出菜单-->
+		<div id="topPopover" class="mui-popover">
+			<div class="mui-popover-arrow"></div>
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell"><a href="#">Item1</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#">Item2</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#">Item3</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#">Item4</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#">Item5</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+			<!--联系人页面-->
+			<div id="tabbar-with-chat" class="mui-control-content">
+				<h5 id="contact" style="text-align: center;color:#000 ;"><span><img src="./images/muwu.jpg" style="width: 30px;height:30px;float: left;border-radius: 15px;"/></span>联系人<span style="float:right">添加</span></h5>
+				<div class="mui-input-row mui-search">
+					<input type="search" class="mui-input-clear" placeholder="搜索">
+				</div>
+					<ul class="mui-table-view" style="margin-bottom: 10px;">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">新朋友</a>
+				</li>
+				</ul>
+				
+				<ul class="mui-table-view">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><span class="mui-badge mui-badge-danger">15</span>
+						<img class="mui-media-object mui-pull-left" src="./images/shuijiao.jpg" style="width:40px;height:40px;border-radius: 20px;">
+						<div class="mui-media-body">
+							幸福
+							<p class='mui-ellipsis mui-navigate-right'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><span class="mui-badge mui-badge-danger">99</span>
+						<img class="mui-media-object mui-pull-left" src="./images/muwu.jpg" style="width:40px;height:40px;border-radius: 20px;">
+						<div class="mui-media-body">
+							木屋
+							<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><span class="mui-badge mui-badge-danger">10</span>
+						<img class="mui-media-object mui-pull-left" src="./images/cbd.jpg" style="width:40px;height:40px;border-radius: 20px;">
+						<div class="mui-media-body">
+							CBD
+							<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+						</div>
+					</a>
+				</li>
+                <li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><span class="mui-badge mui-badge-danger">15</span>
+						<img class="mui-media-object mui-pull-left" src="./images/shuijiao.jpg" style="width:40px;height:40px;border-radius: 20px;">
+						<div class="mui-media-body">
+							幸福
+							<p class='mui-ellipsis mui-navigate-right'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><span class="mui-badge mui-badge-danger">99</span>
+						<img class="mui-media-object mui-pull-left" src="./images/muwu.jpg" style="width:40px;height:40px;border-radius: 20px;">
+						<div class="mui-media-body">
+							木屋
+							<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><span class="mui-badge mui-badge-danger">10</span>
+						<img class="mui-media-object mui-pull-left" src="./images/cbd.jpg" style="width:40px;height:40px;border-radius: 20px;">
+						<div class="mui-media-body">
+							CBD
+							<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><span class="mui-badge mui-badge-danger">15</span>
+						<img class="mui-media-object mui-pull-left" src="./images/shuijiao.jpg" style="width:40px;height:40px;border-radius: 20px;">
+						<div class="mui-media-body">
+							幸福
+							<p class='mui-ellipsis mui-navigate-right'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><span class="mui-badge mui-badge-danger">99</span>
+						<img class="mui-media-object mui-pull-left" src="./images/muwu.jpg" style="width:40px;height:40px;border-radius: 20px;">
+						<div class="mui-media-body">
+							木屋
+							<p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;"><span class="mui-badge mui-badge-danger">10</span>
+						<img class="mui-media-object mui-pull-left" src="./images/cbd.jpg" style="width:40px;height:40px;border-radius: 20px;">
+						<div class="mui-media-body">
+							CBD
+							<p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+			</div>
+			<!--动态页面-->
+			<div id="tabbar-with-contact" class="mui-control-content">
+				<h5 id="dongtai" style="text-align: center;color:#000 ;"><span><img src="./images/muwu.jpg" style="width: 30px;height:30px;float: left;border-radius: 15px;"/></span>动态<span style="float:right">更多</span></h5>
+				<div class="mui-input-row mui-search">
+					<input type="search" class="mui-input-clear" placeholder="搜索">
+				</div>
+					<ul class="mui-table-view mui-grid-view mui-grid-9" style="margin-bottom: 10px;">
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="./html/imageviewer.html">
+		                    <span class="mui-icon mui-icon-pengyouquan"></span>
+		                    <div class="mui-media-body">好友动态</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <span class="mui-icon mui-icon-location">
+		                    <div class="mui-media-body">附近</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+		                    <span class="mui-icon mui-icon mui-icon-navigate"></span>
+		                    <div class="mui-media-body">兴趣部落</div></a></li>
+		   
+		        </ul> 
+				
+				<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						 <span class="mui-icon-extra mui-icon-extra-grech"></span>&nbsp;&nbsp;&nbsp;&nbsp;游戏
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						 <span class="mui-icon-extra mui-icon-extra-lamp"></span>&nbsp;&nbsp;&nbsp;&nbsp;日迹
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						 <span class="mui-icon mui-icon-eye"></span>&nbsp;&nbsp;&nbsp;&nbsp;看点
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						 <span class="mui-icon mui-icon-eye"></span>&nbsp;&nbsp;&nbsp;&nbsp;看点
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						 <span class="mui-icon mui-icon-eye"></span>&nbsp;&nbsp;&nbsp;&nbsp;看点
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						 <span class="mui-icon mui-icon-eye"></span>&nbsp;&nbsp;&nbsp;&nbsp;看点
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						 <span class="mui-icon-extra mui-icon-extra-cart"></span>&nbsp;&nbsp;&nbsp;&nbsp;京东购物
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						 <span class="mui-icon-extra mui-icon-extra-xiaoshuo"></span>&nbsp;&nbsp;&nbsp;&nbsp;阅读
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						 <span class="mui-icon-extra mui-icon-extra-classroom"></span>&nbsp;&nbsp;&nbsp;&nbsp;动漫
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						 <span class="mui-icon-extra mui-icon-extra-custom"></span>&nbsp;&nbsp;&nbsp;&nbsp;音乐
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						 <span class="mui-icon mui-icon-videocam"></span>&nbsp;&nbsp;&nbsp;&nbsp;直播
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						 <span class="mui-icon-extra mui-icon-extra-alipay"></span>&nbsp;&nbsp;&nbsp;&nbsp;应用宝
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view" style="margin-top: 10px;">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						 <span class="mui-icon-extra mui-icon-extra-find"></span>&nbsp;&nbsp;&nbsp;&nbsp;运动
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						 <span class="mui-icon-extra mui-icon-extra-cold"></span>&nbsp;&nbsp;&nbsp;&nbsp;吃喝玩乐
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						 <span class="mui-icon-extra mui-icon-extra-hotel"></span>&nbsp;&nbsp;&nbsp;&nbsp;同城服务
+					</a>
+				</li>
+			</ul>
+			</div>	
+			</div>
+			</div>
+			</div>
+			</div>
+			
+		
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/jquery-2.1.4.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		mui(".mui-scroll-wrapper").scroll({
+		deceleration : 0.0005
+		});
+		//解决MUI中div链接无法跳转的bug
+		mui('body').on('tap','a',function(){document.location.href=this.href;});
+//		mui('.mui-popover').popover('show');
+	</script>
+	<script>
+		mui('body').on('tap', '#night', function(event){
+		$(".content,.mui-content,.mui-bar,.mui-table-view,#offCanvasSideScroll").css("backgroundColor",'#090331');
+		$(".content").css("backgroundImage","none");
+		$(".content,.mui-table-view,#text,#menu,#pid,#contact,#dongtai").css("color","#fff");
+		});
+		
+	</script>
+</html>
