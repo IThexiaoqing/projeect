@@ -1,0 +1,50 @@
+/*商家表单*/
+body,#form{
+    background-color:#F2F2F2;
+}
+.weui-cell{
+    padding: 9px 15px;
+}
+.weui-cell:before{
+    border-top: 1px solid #DFDFDF;
+    right:15px;
+}
+.weui-cells{
+    margin-top: 0;
+}
+.weui-cells:before {
+    border-top: none;
+}
+.weui-cells:after {
+    border-bottom: none;
+}
+.weui-cell .weui-cell__hd .weui-label{
+    color:black;
+}
+.weui-cell .weui-cell__bd  .weui-input{
+    font-size: 16px;
+    font-family: normal;
+}
+.weui-input{
+    height: 2em;
+}
+textarea{
+    width:100%;
+    font-size: 16px;
+    border: none ;
+    padding-top: 2px;
+    resize:none;
+    font-family: normal;
+    -webkit-tap-highlight-color:#fff !important;
+}
+input.weui-btn{
+    /*color:#FFA500;*/
+    color:#fff;
+    width: 70%;
+    border-radius: 0;
+}
+/*
+.weui-btn_primary{
+   background-color: #072446;
+
+}*/

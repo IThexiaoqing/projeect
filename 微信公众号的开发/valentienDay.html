@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link rel="stylesheet" href="static/css/weui.min.css">
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/0.3.0/weui.css" />
+    <!--weiUI微信开发CSS库-->
+    <link rel="stylesheet" href="//cdn.bootcss.com/jquery-weui/1.0.1/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="./valentienDay.css">
+    <style>
+        .weui-grid:before {
+            border-right: 2px solid #ffffff;
+        }
+        .weui-grid:after {
+            border-bottom: 2px solid #ffffff;
+        }
+        .weui-toptips{
+            margin-top: 170px;
+        }
+        .overlay {
+            pointer-events: none
+        }
+
+
+    </style>
+    <!--客户端检测函数，url重定向-->
+    <script>
+        /*if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){}else{
+         window.location.href="../pc/index.php";
+         }*/
+    </script>
+
+    <title>七夕情人节</title>
+
+
+</head>
+
+<body>
+<!--<?php
+//error_reporting(E_ALL^E_NOTICE^E_WARNING);
+////访问频率限制
+//session_start();
+//if(isset($_SESSION['webviewtime']) && isset($_SESSION['webviewcount'])){
+//    $times = $_SESSION['webviewtime'];
+//    $count = $_SESSION['webviewcount'];
+//    //刷新超过三次
+//    if($count > 3){
+//$time = time() - $times;
+////5s内只能访问一次
+//if($time<5){
+//    exit("<body style='background:#ffffff;;'><div class=\"copyright\" style=\"margin: 0 auto;margin-top: 60px;text-align: center;\">
+//        <p style=\"margin-top:60px;font-size: 20px;font-weight: bold;\">抱歉,刷新太频繁！</p>
+//        <p style=\"margin-top:10px;font-size: 20px;font-weight: bold;\">请您稍后再试</p>
+//        <img style=\"margin-top:60px;width: 30%\" src=\"http://mmcity.cn/static/img/weixin.6276b26.png\" alt=\"茂名城\">
+//        <p style=\"margin-top:10px;font-size: 16px;\">欢迎关注茂名城公众号</p>
+//        <p style=\"margin-top: 60px;font-size: 16px\">Copyright ©2017 城市动力</p></div></body>");
+//}else{
+//$_SESSION['webviewtime']= time();
+//}
+//}
+//$_SESSION['webviewcount'] = $count+1;
+//}else{
+//$_SESSION['webviewtime']= time();
+//$_SESSION['webviewcount']= 1;
+//}
+//
+//?>-->
+
+<!--微信分享LOGO-->
+<div class="share" style="display: none;">
+    <img src="http://m.mmcity.cn/web/shareImg1.png" alt="分享图片">
+</div>
+
+<!--首页头部-->
+<header class="weui-flex" style="padding: 0;position: relative;">
+    <!--<img src="design/logo4.jpg" alt="" style="width: 100%;">-->
+    <div class="swiper-container" style="width: 100%;background: #072446;height: 78%">
+        <div class="swiper-wrapper" style="width: 100%">
+            <div class="swiper-slide"><a style="display: inline-block;width: 100%;height: 100%" href="http://m.mmcity.cn/poster"><img src="design/haibao7.jpg " alt="" style="width: 100%"></a></div>
+            <div class="swiper-slide"><a style="display: inline-block;width: 100%;height: 100%" href="http://m.mmcity.cn/poster"><img src="design/haibao8.jpg " alt="" style="width: 100%"></a></div>
+            <div class="swiper-slide"><a style="display: inline-block;width: 100%;height: 100%" href="http://m.mmcity.cn/poster"><img src="design/haibao6.jpg" alt="" style="width: 100%"></a></div>
+        </div>
+        <div class="swiper-pagination" style="width: 100%;position: absolute;bottom: 0;left: 2px"></div>
+    </div>
+</header>
+
+<section class="ad weui-flex">
+    <div style="width: 100%;position: relative;">
+        <p style="width: 100%;height:23px;line-height: 22px;text-align: center;"><a style="color: orange;display: inline-block;line-height: 24px;text-align: center" href="http://activity.yktour.com.cn/#/WildChain?channels=0">茂名已晋级，网络投票不计分，但可获抽奖机会【进入投票】</a></p>
+        <!--        <p style="width: 50%;height:23px;line-height: 25px;text-align: right;position: absolute;right: 10px;bottom: 0"><span id="countdown" style="font-size: 12px;font-family: Calibri">loading</span></p>-->
+    </div>
+</section>
+    <!--返回首页，领取海报-->
+<section>
+    <div class="weui-flex" style="background-color: #E0EBF2">
+        <div class="weui-grid" style="width: 50%;text-align: center;padding: 0"><a href="http://m.mmcity.cn/web" style="display: inline-block;width:100%;padding: 0.3em 0;color: #586CAB;">返回首页</a></div>
+        <div class="weui-grid" style="width: 50%;text-align: center;padding: 0;border-right: none"><a href="http://m.mmcity.cn/poster" style="display: inline-block;width:100%;padding: 0.3em 0;color: #586CAB;">领取海报</a></div>
+    </div>
+    <!--说明的内容-->
+    <div class="content" style="margin-bottom: 50px;">
+
+    </div>
+</section>
+<!--表单数据提交成功的提示-->
+<section>
+    <div class="weui-msg" style="display: none">
+        <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
+        <div class="weui-msg__text-area">
+            <h2 class="weui-msg__title">操作成功</h2>
+        </div>
+    </div>
+</section>
+<!--信息没填写完整的提示弹出框-->
+<section>
+    <div class="weui_dialog_alert" style="display: none;">
+        <div class="weui_mask" style="z-index: 9"></div>
+        <div class="weui_dialog">
+            <div class="weui_dialog_hd"> <strong class="weui_dialog_title">温馨提示</strong>
+            </div>
+            <div class="weui_dialog_bd">
+                请将信息填写完整
+                <P id="pname"></P>
+                <P id="pmanager"></P>
+                <P id="pjob"></P>
+                <P id="pphone"></P>
+                <P id="ppicker"></P>
+            </div>
+            <div class="weui_dialog_ft">
+                <a href="javascript:;" class="weui_btn_dialog primary">确定</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--表单-->
+<form class="weui-cells weui-cells_form" id="form" onsubmit="return check();">
+    <div style="background-color: #fff">
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label" >公司名称</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input notNull" name="name" type="text" maxlength="20"  placeholder="请输入公司名称" id="name" onblur="return checkName()">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label" >负&nbsp;&nbsp;责&nbsp;&nbsp;人</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input notNull" name="manager" type="text" maxlength="5" placeholder="请输入负责人姓名" id="manager" onblur="return checkManager()">
+        </div>
+    </div>
+    </div>
+    <div style="background-color: #fff;margin-top: 10px">
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label" >职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input notNull" name="job" type="text" maxlength="8" placeholder="请输入职位" id="job" onblur="return checkJob()">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label" >联系电话</label></div>
+        <div class="weui-cell__bd">
+            <input class="weui-input notNull" name="contact" id="phone" type="number" maxlength="11" placeholder="请输入负责人联系电话" onblur="return checkPhone()">
+        </div>
+    </div>
+    </div>
+    <div style="background-color: #fff;margin-top: 10px">
+    <div class="weui-cell">
+        <div class="weui-cell__hd"><label class="weui-label" >业务方向</label></div>
+        <div class="weui-cell__bd">
+          <!--<input class="weui-input" name="work" type="text" placeholder="请输入业务方向">-->
+            <input id="picker" class="weui-input notNull" name="work" type="text" placeholder="请选择入业务方向" >
+
+        </div>
+    </div>
+     <div class="weui-cell" style="border-bottom: 1px solid #e5e5e5;" >
+         <div class="weui-cell__hd" style="margin-top: -78px"><label class="weui-label">备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注</label></div>
+         <div class="weui-cell__bd" style="margin-top: 10px">
+             <textarea name="remark" rows="4"  placeholder="选填" id="remark" onblur="return checkRemark()" style="outline: none"></textarea>
+             <p style="text-align:right;font-size: 14px">您还可以输入<span>50</span>个字</p>
+    </div>
+
+     </div>
+    </div>
+    <div class="weui-flex" style="padding-top: 7px;padding-bottom: 7px">
+        <!--<div class="weui-flex__item"><input type="reset" class="weui-btn weui-btn_primary" value="重置" style="width: 85%"></div>-->
+        <input type="submit" id="s" class="weui-btn weui-btn_primary" value="提交" ></div>
+    </form>
+
+
+<!--页脚-->
+<footer class="weui-footer">
+    <a class="weui-footer__text"
+       href="https://h5.dingtalk.com/home/index.html?_dt_no_comment=1&token=cb5fe8bcab0becec5550999058303bb9&corpId=dingd9d2e1d26cc65ae035c2f4657eb6378f&from=singlemessage&isappinstalled=1#/home">Copyright
+        © 2017 茂名市城市动力科技有限公司</a>
+    <p class="weui-footer__links">
+        <!--<a style="font-size: 12px" href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIyOTU4NDc4OQ==&scene=123#wechat_redirect" class="weui-footer__link">微信公众号：茂名城 &nbsp;&nbsp;&nbsp;总访问量：<span id="pv">330000</span></a>-->
+        <a style="font-size: 12px" href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIyOTU4NDc4OQ==&scene=123#wechat_redirect" class="weui-footer__link">微信公众号：茂名城 &nbsp;&nbsp;&nbsp;联系QQ：839151</a>
+    </p>
+    <p style="font-size: 12px;text-align: center">本平台基于大数据计算开发</p>
+    <br>
+</footer>
+
+<!-- body 最后 -->
+<script src="static/js/jquery-3.2.0.min.js"></script>
+<script src="static/js/jquery-weui.min.js"></script>
+
+<!-- 如果使用了某些拓展插件还需要额外的JS -->
+<!--<script src="static/js/echarts.min.js"></script>-->
+<script src="static/js/swiper.min.js"></script>
+<!--幻灯片JS-->
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        loop: true,
+        speed: 700,
+        autoplay: 5000,
+        pagination: '.swiper-pagination'
+    });
+    var swiperHeight = $('.swiper-container img');
+    $('.swiper-container').css({height: swiperHeight[0].clientHeight+'px'});
+
+    $(window).resize(function () {
+        var swiperHeight = $('.swiper-container img');
+        $('.swiper-container').css({height: swiperHeight[0].clientHeight - 5+'px'});
+    })
+</script>
+<!--就业方向选择-->
+<script type="text/javascript">
+    $("#picker").picker({
+        title: "请选择您的业务方向",
+        cols: [
+            {
+                textAlign: 'center',
+                values: ['优惠促销', '品牌宣传', '资源合作','政企合作']
+            }
+        ]
+    });
+    $('.close-picker').css('color','red')
+</script>
+<!--判断表单是否填写完整-->
+<script>
+
+    function checkPhone() {
+        var contact = document.getElementById('phone').value;
+        if(!(/^1[34578]\d{9}$/.test(contact))){
+            $('#phone').css('border','1px solid red');
+            document.getElementById("phone").value='';
+            $('#phone').attr('placeholder','不能为空且是11位').css('padding-left','5px', 'text-align','start');
+            return false;
+        }else{
+            $('#phone').css('border','none');
+        }
+    }
+    function checkName() {
+        var name=document.getElementById("name").value;
+        if(!/^[\u4e00-\u9fa5]+$/gi.test(name)||name.length>20) {
+            $('#name').css('border','1px solid red');
+            document.getElementById("name").value='';
+            $('#name').attr('placeholder','不能为空且只能输入汉字').css('padding-left','5px', 'text-align','start');
+           console.log($('#name').attr('placeholder'));
+            return false;
+        }else{
+            $('#name').css('border','none');
+        }
+    }
+   function checkManager() {
+          var manager=document.getElementById("manager").value;
+        if(!/^[\u4e00-\u9fa5]+$/gi.test(manager)||manager.length>5) {
+            $('#manager').css('border','1px solid red');
+            document.getElementById("manager").value='';
+            $('#manager').attr('placeholder','不能为空且只能输入汉字').css('padding-left','5px', 'text-align','start');
+            document.getElementById("manager").value='';
+            return false;
+        }else{
+            $('#manager').css('border','none');
+        }
+    }
+    function checkJob() {
+        var job=document.getElementById("job").value;
+        if(!/^[\u4e00-\u9fa5]+$/gi.test(job)||job.length>8) {
+            $('#job').css('border','1px solid red');
+            document.getElementById("job").value='';
+            $('#job').attr('placeholder','不能为空且只能输入汉字').css('padding-left','5px', 'text-align','start');
+            document.getElementById("job").value='';
+            return false;
+       }else{
+            $('#job').css('border','none');
+        }
+    }
+    function checkRemark() {
+        var text=document.getElementById("remark").value;
+        if(text.length>50) {
+            return false;
+       }
+   }
+    function check() {
+            $('#picker').addClass('overlay')
+        if($('#name').val()=='') {
+            $('.weui_dialog_alert').css('display', 'block');//弹出对话框
+            $('#pname').html("公司名称不能为空<br/>")
+//            return false
+        }else{
+            $('#pname').html(" ");
+        }
+            if($('#manager').val()==''){
+               $('.weui_dialog_alert').css('display','block');//弹出对话框
+                $('#pmanager').html("<p>负责人姓名不能为空</p>");
+            }else{
+                $('#pmanager').html(" ");
+            }
+            if($('#job').val()==''){
+                $('.weui_dialog_alert').css('display','block');//弹出对话框
+                $('#pjob').html("<p>职位不能为空</p>");
+            }else{
+                $('#pjob').html(" ");
+            }
+            if($('#phone').val()==''){
+                $('.weui_dialog_alert').css('display','block');//弹出对话框
+                $('#pphone').html("<p>联系电话不能为空</p>");
+            }else{
+                $('#pphone').html(" ");
+            }
+            if($('#picker').val()==''){
+                $('.weui_dialog_alert').css('display','block');//弹出对话框
+                $('#ppicker').html("<p>业务方向不能为空</p>");
+            }else{
+                $('#pname').html(" ");
+            }
+            /* 点击确定按钮，对话框消失!*/
+            $('.weui_dialog_alert').on('touchend click', '.weui_btn_dialog', function(){
+                $('.weui_dialog_alert').hide();
+                var test = $('.weui_dialog_alert').hide();
+                setTimeout(function () {
+                    $('#picker').removeClass('overlay')
+                },50);
+                    console.log('隐藏')
+
+            });
+            getMsg();
+       return false;
+    }
+function getMsg() {
+    $.ajax({
+        type: 'post',
+        url: 'http://w.mmcity.cn/public/index.php/cooperation',
+        jsonp: "jsoncallback",
+        data:$('#form').serialize(),// 你的formid
+        success: function (res) {
+            if(res.status==200){
+                $('.weui-msg').css('display','block');//显示提交成功的信息
+                $('#form').css('display','none');//隐藏表单
+                console.log(res);
+                return false;
+            }
+        },
+        error: function () {
+            $('.weui-msg').css('display','block');//显示提交失败的信息
+            $('#form').css('display','none');//隐藏表单
+            $('.weui-msg__icon-area i').removeClass('weui-icon-success').addClass('weui-icon-warn');//icon改为警告
+            $('.weui-msg__title').html(' ');
+            console.log(res);
+            return false;
+        }
+    });
+    return false
+}
+
+</script>
+<!--备注框可输入字数的判断-->
+<script>
+    $(function(){
+        $(' textarea ').keyup(function(){
+            //输入字符后键盘up时触发事件
+            var txtLeng = $('textarea').val().length;      //把输入字符的长度赋给txtLeng
+            //拿输入的值做判断
+            if( txtLeng>50 ){
+            //输入长度大于300时span显示0
+                $(' #comment p span ').text(' 0 ');
+            //截取输入内容的前300个字符，赋给fontsize
+                var fontsize = $('textarea').val().substring(0,50);
+            //显示到textarea上
+                $('textarea ').val( fontsize );
+            }else{
+            //输入长度小于300时span显示300减去长度
+                $('.weui-cell__bd span').text(50-txtLeng);
+            }
+        });
+    });
+</script>
+</body>
+</html>
